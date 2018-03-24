@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="notas">
+<head>
+	<meta charset="UTF-8">
+	<title>Notas</title>
+    <link type="text/css" rel="stylesheet" href="css/material-icons.css"/>
+    <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="text/javascript" src="lib/angular.js"></script>
+</head>
+<body ng-controller="notasController">
+    <div ng-include="'views/nav.html'"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col l4 offset-l4">
+                <div class="input-field">
+                    <input id="titulo" ng-model="nota.titulo" type="text">
+                    <label for="titulo">Título</label>
+                </div>
+                <div class="input-field">
+                    <input id="descricao" ng-model="nota.descricao" type="text">
+                    <label for="descricao">Descrição</label>
+                </div>
+                <a ng-click="salvar(nota)" class="waves-effect waves-light btn">Salvar</a>
+                <ul class="collection">
+                    <li class="collection-item" ng-repeat="nota in notas">
+                        <div>
+                            {{nota.descricao}}
+                            <a class="secondary-content" ng-click="atualizarNota(nota)">
+                                <i class="material-icons">send</i>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="lib/jquery-3.2.1.min.js"></script>
+    <script src="lib/materialize.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/notaController.js"></script>
+    <script src="js/services/notasAPIService.js"></script>
+</body>
+</html>
