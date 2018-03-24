@@ -1,12 +1,12 @@
-angular.module("notas").factory("notasAPI", function($http){
+angular.module("notas").factory("notasAPI", function($http, config){
     var _list = function(){
-        return $http.get('http://localhost:8081/notes-core/rest/notas/list');
+        return $http.get(config.baseUrl + "/notas/list");
     };
     var _save = function(nota){
-        return $http.post('http://localhost:8081/notes-core/rest/notas/save',nota);
+        return $http.post(config.baseUrl + "/notas/save",nota);
     };
     var _delete = function(id){
-        return $http.delete('http://localhost:8081/notes-core/rest/notas/delete/'+id);
+        return $http.delete(config.baseUrl + "/notas/delete/"+id);
     };
     return {
         list : _list,
