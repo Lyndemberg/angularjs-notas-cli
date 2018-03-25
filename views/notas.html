@@ -1,12 +1,10 @@
 <div class="row">
-        <div class="col l8 offset-l2">
-            <ul class="collection">
-                <li class="collection-item" ng-repeat="nota in notas">
-                    {{nota.titulo}}
-                    <a href="#modalNota" class="secondary-content modal-trigger" ng-click="abrirNota(nota)">
-                        <i class="material-icons">send</i>
-                    </a>
-                </li>
-            </ul>
+    <div class="col s6" ng-repeat="nota in notas">
+        <div class="card">
+            <div class="card-content blue-text text-darken-2">
+                <span class="card-title">{{nota.titulo}}</span>
+                <p>{{nota.descricao | limitTexto:10}}</p>
+            </div>
         </div>
+    </div>
 </div>
