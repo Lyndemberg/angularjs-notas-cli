@@ -1,3 +1,3 @@
-angular.module("notas", []);
+angular.module("notas", ["ngRoute"]);
 
 
